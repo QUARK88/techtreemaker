@@ -35,7 +35,7 @@
         var ctx = (ctx);
         ctx.canvas.width = window.innerWidth;
         ctx.canvas.height = window.innerHeight;
-        function tech(x, y) {
+        function tech(x, y, title, desc) {
             ctx.beginPath()
             ctx.rect(x, y, 128, 128)
             ctx.fillStyle = "#00b5ff"
@@ -44,8 +44,16 @@
             ctx.rect(x + 8, y + 8, 112, 112)
             ctx.fillStyle = "#202020"
             ctx.fill()
+            titlewidth = ctx.measureText(title).width;
+            ctx.font = "12px font"
+            ctx.fillStyle = "#fff"
+            ctx.textAlign = "center"
+            ctx.fillText(title, x + 64, y + 32)
+            descwidth = ctx.measureText(desc).width;
+            ctx.font = "8px font"
+            ctx.fillText(desc, x + 64, y + 64)
         }
-        tech(x, y)
+        tech(x, y, "Something", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
     }
     reload()
 </script>
