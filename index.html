@@ -1,0 +1,51 @@
+<style>
+    @font-face {
+        font-family: font;
+        src: url(font.ttf)
+    }
+
+    html {
+        background-color: #404040;
+        padding: 32px;
+        scroll-behavior: smooth;
+        font-family: font;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+</style>
+
+<body>
+    <input type="number" id="x">
+    <input type="number" id="y">
+    <button type="button" onclick="reload()">Generate</button><br><br>
+    <canvas id="tree" width="800" height="880"></canvas>
+</body>
+
+<script>
+    function reload() {
+        x = document.getElementById("x").value
+        y = document.getElementById("y").value
+        var c = document.getElementById("tree")
+        var ctx = c.getContext("2d")
+        var ctx = (ctx);
+        ctx.canvas.width = window.innerWidth;
+        ctx.canvas.height = window.innerHeight;
+        function tech(x, y) {
+            ctx.beginPath()
+            ctx.rect(x, y, 128, 128)
+            ctx.fillStyle = "#00b5ff"
+            ctx.fill()
+            ctx.beginPath()
+            ctx.rect(x + 8, y + 8, 112, 112)
+            ctx.fillStyle = "#202020"
+            ctx.fill()
+        }
+        tech(x, y)
+    }
+    reload()
+</script>
